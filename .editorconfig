@@ -17,3 +17,6 @@ indent_size = 2
 
 [*.rb]
 indent_size = 2
+
+[bucket/*.json]
+end_of_line = crlf

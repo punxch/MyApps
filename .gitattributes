@@ -1,5 +1,6 @@
 # Portable metadata and scripts; Windows PowerShell accepts LF as well.
 * text=auto eol=lf
+bucket/*.json text eol=crlf
 *.zip binary
 *.dmg binary
 *.exe binary

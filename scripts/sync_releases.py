@@ -343,7 +343,8 @@ def synchronize(root, client, tag=None, dry_run=False):
         if not dry_run:
             target = inside(root, name)
             target.parent.mkdir(parents=True, exist_ok=True)
-            target.write_text(content, encoding="utf-8", newline="\n")
+            newline = "\r\n" if name.startswith("bucket/") and name.endswith(".json") else "\n"
+            target.write_text(content, encoding="utf-8", newline=newline)
     return sorted(changed)
 
 

@@ -2,9 +2,9 @@ name: Scoop tests
 
 on:
   push:
-    paths: ['bucket/**', 'bin/**', 'Scoop-Bucket.Tests.ps1', '.github/workflows/scoop.yml']
+    paths: ['bucket/**', 'bin/**', 'Scoop-Bucket.Tests.ps1', '.gitattributes', '.github/workflows/scoop.yml']
   pull_request:
-    paths: ['bucket/**', 'bin/**', 'Scoop-Bucket.Tests.ps1', '.github/workflows/scoop.yml']
+    paths: ['bucket/**', 'bin/**', 'Scoop-Bucket.Tests.ps1', '.gitattributes', '.github/workflows/scoop.yml']
   workflow_dispatch:
 
 permissions:

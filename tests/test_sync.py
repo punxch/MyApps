@@ -38,6 +38,9 @@ class SyncTests(unittest.TestCase):
         self.assertEqual(len(files), 6)
         alpha = self.read("bucket/alpha.json")
         self.assertEqual(alpha["version"], "1.2.0")
+        scoop_bytes = (self.root / "bucket/alpha.json").read_bytes()
+        self.assertIn(b"\r\n", scoop_bytes)
+        self.assertNotIn(b"\n", scoop_bytes.replace(b"\r\n", b""))
         artifact = client.data[0]["assets"][0]
         self.assertEqual(alpha["architecture"]["64bit"]["hash"], artifact["digest"][7:])
         self.assertIn("/alpha-v1.2.0/", alpha["architecture"]["64bit"]["url"])
