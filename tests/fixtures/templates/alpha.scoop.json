@@ -1,0 +1,14 @@
+{
+    "description": "Example desktop application; replace before enabling",
+    "homepage": "https://github.com/punxch/MyApps",
+    "license": {
+        "identifier": "Proprietary",
+        "url": "https://example.com/alpha/license"
+    },
+    "shortcuts": [
+        [
+            "Alpha.exe",
+            "Alpha"
+        ]
+    ]
+}

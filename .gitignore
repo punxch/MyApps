@@ -1,0 +1,11 @@
+*.sublime-workspace
+*~
+._*
+page.html
+checkver-*.html
+__pycache__/
+*.py[cod]
+.venv/
+.DS_Store
+.test-output/
+dist/

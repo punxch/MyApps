@@ -1,0 +1,20 @@
+{
+    "schema_version": 1,
+    "id": "alpha",
+    "enabled": false,
+    "scoop": {
+        "template": "templates/alpha.scoop.json",
+        "assets": {
+            "64bit": "alpha-{version}-windows-x64.zip",
+            "arm64": "alpha-{version}-windows-arm64.zip"
+        }
+    },
+    "homebrew": {
+        "kind": "cask",
+        "template": "templates/alpha.cask.rb",
+        "assets": {
+            "arm64": "alpha-{version}-macos-arm64.dmg",
+            "x64": "alpha-{version}-macos-x64.dmg"
+        }
+    }
+}

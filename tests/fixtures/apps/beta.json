@@ -1,0 +1,19 @@
+{
+    "schema_version": 1,
+    "id": "beta",
+    "enabled": false,
+    "scoop": {
+        "template": "templates/beta.scoop.json",
+        "assets": {
+            "64bit": "beta-{version}-windows-x64.zip"
+        }
+    },
+    "homebrew": {
+        "kind": "formula",
+        "template": "templates/beta.formula.rb",
+        "assets": {
+            "arm64": "beta-{version}-macos-arm64.tar.gz",
+            "x64": "beta-{version}-macos-x64.tar.gz"
+        }
+    }
+}

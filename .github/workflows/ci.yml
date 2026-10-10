@@ -1,0 +1,49 @@
+name: Template CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  generator:
+    name: Generator (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Tests and configuration validation
+        shell: bash
+        run: |
+          python3 -m unittest discover -s tests -v
+          python3 scripts/sync_releases.py --check
+      - name: Homebrew parses generated definitions
+        if: runner.os == 'macOS'
+        shell: bash
+        env:
+          HOMEBREW_NO_AUTO_UPDATE: '1'
+          HOMEBREW_NO_ANALYTICS: '1'
+        run: |
+          python3 tests/preview_fixtures.py --output "$RUNNER_TEMP/myapps-preview"
+          brew tap local/myapps "$RUNNER_TEMP/myapps-preview"
+          brew info --json=v2 --cask local/myapps/alpha > /dev/null
+          brew info --json=v2 local/myapps/beta > /dev/null
+          for file in Casks/*.rb Formula/*.rb; do
+            [ -f "$file" ] || continue
+            ruby -c "$file"
+          done
+          brew tap local/myapps-real "$GITHUB_WORKSPACE"
+          for file in Casks/*.rb; do
+            [ -f "$file" ] || continue
+            brew info --json=v2 --cask "local/myapps-real/$(basename "$file" .rb)" > /dev/null
+          done
+          for file in Formula/*.rb; do
+            [ -f "$file" ] || continue
+            brew info --json=v2 "local/myapps-real/$(basename "$file" .rb)" > /dev/null
+          done

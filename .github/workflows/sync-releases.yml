@@ -1,0 +1,69 @@
+name: Sync release manifests
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Optional app-vX.Y.Z tag; blank reconciles all apps'
+        required: false
+        type: string
+  workflow_call:
+    inputs:
+      tag:
+        description: 'Optional app-vX.Y.Z tag; blank reconciles all apps'
+        required: false
+        default: ''
+        type: string
+  schedule:
+    # Reconcile missed/merged events and releases created by GITHUB_TOKEN.
+    - cron: '37 */6 * * *'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release-manifest-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout current default branch, not the release tag
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          fetch-depth: 0
+      - name: Verify generator before granting it release data
+        run: |
+          python3 -m unittest discover -s tests -v
+      - name: Generate manifests
+        id: sync
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REQUESTED_TAG: ${{ inputs.tag }}
+        run: |
+          if [ -n "$REQUESTED_TAG" ]; then
+            python3 scripts/sync_releases.py --repository "$GITHUB_REPOSITORY" --tag "$REQUESTED_TAG"
+          else
+            python3 scripts/sync_releases.py --repository "$GITHUB_REPOSITORY" --all
+          fi
+      - name: Parse generated Ruby files
+        if: steps.sync.outputs.changed == 'true'
+        run: |
+          find Casks Formula -name '*.rb' -print0 | xargs -0 -r -n 1 ruby -c
+      - name: Commit both platforms together
+        if: steps.sync.outputs.changed == 'true'
+        env:
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- bucket Casks Formula .release-state
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "chore: sync release manifests"
+          # A concurrent human push causes a visible failure, never a force push.
+          # The scheduled reconciliation will retry against the new branch head.
+          git push origin "HEAD:$DEFAULT_BRANCH"

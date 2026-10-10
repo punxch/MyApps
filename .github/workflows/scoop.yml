@@ -1,0 +1,46 @@
+name: Scoop tests
+
+on:
+  push:
+    paths: ['bucket/**', 'bin/**', 'Scoop-Bucket.Tests.ps1', '.github/workflows/scoop.yml']
+  pull_request:
+    paths: ['bucket/**', 'bin/**', 'Scoop-Bucket.Tests.ps1', '.github/workflows/scoop.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: windows-latest
+    defaults:
+      run:
+        shell: pwsh
+    steps:
+      - name: Checkout bucket
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 2
+          path: my_bucket
+      - name: Check for published manifests
+        id: manifests
+        run: |
+          $present = @(Get-ChildItem my_bucket/bucket -Filter '*.json').Count -gt 0
+          "present=$($present.ToString().ToLowerInvariant())" >> $env:GITHUB_OUTPUT
+      - name: Checkout Scoop
+        if: steps.manifests.outputs.present == 'true'
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: ScoopInstaller/Scoop
+          path: scoop_core
+      - name: Test dependencies
+        if: steps.manifests.outputs.present == 'true'
+        uses: potatoqualitee/psmodulecache@9e4b63833c22c1768d648e115a9c849afdda22a5 # v6.3
+        with:
+          modules-to-cache: BuildHelpers, Pester
+          shell: pwsh
+      - name: Run official bucket tests
+        if: steps.manifests.outputs.present == 'true'
+        run: |
+          $env:SCOOP_HOME = (Resolve-Path scoop_core).Path
+          ./my_bucket/bin/test.ps1

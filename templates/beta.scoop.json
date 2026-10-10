@@ -1,0 +1,9 @@
+{
+    "description": "Example command-line application; replace before enabling",
+    "homepage": "https://github.com/punxch/MyApps",
+    "license": {
+        "identifier": "Proprietary",
+        "url": "https://example.com/beta/license"
+    },
+    "bin": "beta.exe"
+}
