@@ -11,6 +11,7 @@
 | 软件 | 平台 | 安装 |
 | --- | --- | --- |
 | [Dota2 IME](docs/apps/dota2ime.md) | Windows x64 | `scoop install myapps/dota2ime` |
+| [MyMouse](docs/apps/mymouse.md) | Windows x64 / macOS Apple Silicon、Intel | `scoop install myapps/mymouse` / `brew install --cask punxch/myapps/mymouse` |
 
 软件的二进制发布在本仓库 Releases，应用源码不在本仓库。`alpha`、`beta` 继续作为禁用的配置示例。
 

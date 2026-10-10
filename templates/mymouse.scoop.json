@@ -1,0 +1,18 @@
+{
+    "description": "Share keyboard, mouse and clipboard between Windows and macOS computers",
+    "homepage": "https://github.com/punxch/MyApps/blob/main/docs/apps/mymouse.md",
+    "license": "Proprietary",
+    "bin": "mymouse.exe",
+    "shortcuts": [
+        [
+            "mymouse_settings.exe",
+            "MyMouse"
+        ]
+    ],
+    "notes": [
+        "Windows 10/11 x64. Launch MyMouse from the Start menu; the mymouse command provides the CLI.",
+        "Pair both computers and confirm the matching code before sharing. Ctrl+Alt+Shift+Esc releases remote control.",
+        "Disable login startup and quit MyMouse from the tray before uninstalling. Quit before upgrading, then reopen the app.",
+        "User settings and pairing data are stored outside the package and are retained when uninstalling."
+    ]
+}

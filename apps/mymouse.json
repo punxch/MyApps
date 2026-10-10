@@ -1,0 +1,18 @@
+{
+    "schema_version": 1,
+    "id": "mymouse",
+    "enabled": true,
+    "scoop": {
+        "template": "templates/mymouse.scoop.json",
+        "assets": {
+            "64bit": "mymouse-{version}-windows-x64.zip"
+        }
+    },
+    "homebrew": {
+        "kind": "cask",
+        "template": "templates/mymouse.cask.rb",
+        "assets": {
+            "universal": "mymouse-{version}-macos-universal.zip"
+        }
+    }
+}
