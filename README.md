@@ -11,10 +11,84 @@
 | 软件 | 平台 | 安装 |
 | --- | --- | --- |
 | [Dota2 IME](docs/apps/dota2ime.md) | Windows x64 | `scoop install myapps/dota2ime` |
-| [MyMouse](docs/apps/mymouse.md) | Windows x64 / macOS Apple Silicon、Intel | `scoop install myapps/mymouse` / `brew install --cask punxch/myapps/mymouse` |
+| [MyMouse](docs/apps/mymouse.md) | Windows 10/11 x64 / macOS 12+ Apple Silicon、Intel | `scoop install myapps/mymouse` / `brew install --cask punxch/myapps/mymouse` |
 | [MyPaste](docs/apps/mypaste.md) | Windows x64 / macOS 15.4+ Apple Silicon | `scoop install myapps/mypaste` / `brew install --cask punxch/myapps/mypaste` |
 
 软件的二进制发布在本仓库 Releases，应用源码不在本仓库。`alpha`、`beta` 继续作为禁用的配置示例。
+
+## 用户安装
+
+### Windows：使用 Scoop
+
+尚未安装 Scoop 时，先按 [Scoop 官方指南](https://scoop.sh/) 完成安装。然后在 PowerShell 中添加本仓库，只需执行一次：
+
+```powershell
+scoop bucket add myapps https://github.com/punxch/MyApps
+```
+
+按需选择要安装的软件，每行是一款软件：
+
+```powershell
+scoop install myapps/dota2ime
+scoop install myapps/mymouse
+scoop install myapps/mypaste
+```
+
+安装后从开始菜单打开 **Dota2 IME**、**MyMouse** 或 **MyPaste**。三个 Windows 包均为 x64；MyPaste 要求 Windows 10 1607 或更高版本。
+
+### macOS：使用 Homebrew
+
+尚未安装 Homebrew 时，先按 [Homebrew 官方指南](https://brew.sh/) 完成安装。然后在“终端”中添加本仓库，只需执行一次：
+
+```sh
+brew tap punxch/myapps https://github.com/punxch/MyApps
+```
+
+按需选择要安装的软件，每行是一款软件：
+
+```sh
+brew install --cask punxch/myapps/mymouse
+brew install --cask punxch/myapps/mypaste
+```
+
+安装后从“应用程序”打开 **MyMouse** 或 **MyPaste**。MyMouse 支持 macOS 12+ 的 Apple Silicon 和 Intel；MyPaste 仅支持 macOS 15.4+ 的 Apple Silicon。Dota2 IME 暂无 Mac 版。Homebrew 自身有独立的系统要求；无法使用 Homebrew 时，可按下面的方法手动安装支持当前系统的软件。
+
+### 手动下载安装
+
+不使用 Scoop 或 Homebrew 时，从 [Releases](https://github.com/punxch/MyApps/releases) 选择对应软件的版本，下载 **Assets** 中匹配系统的文件：
+
+| 软件 | Windows | macOS |
+| --- | --- | --- |
+| Dota2 IME | 下载 `dota2ime-版本-windows-x64.zip`，解压后运行 `dota2ime.exe` | 暂不支持 |
+| MyMouse | 下载 `mymouse-版本-windows-x64.zip`，完整解压后运行 `mymouse_settings.exe` | 下载 `mymouse-版本-macos-universal.zip`，解压后将 `MyMouse.app` 移入“应用程序” |
+| MyPaste | 下载 `mypaste-版本-windows-x64.zip`，完整解压后运行 `MyPaste-windows-x86_64/MyPaste.exe` | 下载 `mypaste-版本-macos-arm64.dmg`，打开后将 `MyPaste` 拖入 `Applications` |
+
+Windows ZIP 请完整解压并保留随包文件。GitHub 自动生成的 **Source code** 附件是本仓库的清单与模板，不是应用安装包。
+
+当前 Windows 包未做发行者代码签名；Mac 包使用临时本地签名，尚未经过 Apple 公证。如果 macOS 阻止打开，请确认下载来源后参考 [Apple 的应用打开说明](https://support.apple.com/en-us/102445)。
+
+MyMouse 的 Mac 键鼠共享需要按应用引导授予“辅助功能”和“输入监控”权限；MyPaste 首次启动后需在设置中启用剪贴板历史，Mac 自动粘贴还需要“辅助功能”权限。完整使用说明见 [Dota2 IME](docs/apps/dota2ime.md)、[MyMouse](docs/apps/mymouse.md)、[MyPaste](docs/apps/mypaste.md)。
+
+### 更新软件
+
+更新前先退出目标软件；MyMouse、MyPaste 需从托盘或菜单栏完全退出。以下更新命令仅选择已经安装的软件执行。
+
+Windows：
+
+```powershell
+scoop update
+scoop update dota2ime
+scoop update mymouse
+scoop update mypaste
+```
+
+macOS：
+
+```sh
+brew update
+brew upgrade --cask punxch/myapps/mymouse
+brew upgrade --cask punxch/myapps/mypaste
+```
 
 ## 仓库结构
 
@@ -80,36 +154,6 @@ Windows ZIP 示例要求解压根目录有 `Alpha.exe`；DMG 示例要求包含 
 除了 Release 发布事件，还支持 Actions 页面手动运行、其他工作流调用，以及每 6 小时扫描补偿遗漏事件。定时运行可能延迟，且公开仓库长时间不活动时 GitHub 可能停用定时工作流。
 
 **构建工作流用 `GITHUB_TOKEN` 创建 Release 时，不会因此触发另一个 Release 工作流。** 请在构建结束后显式调用本模板的可复用工作流，或使用手动调度；示例见 [发布指南](docs/PUBLISHING.md)。
-
-## 用户安装
-
-以下命令在真实软件首次发布并生成清单后使用。
-
-Windows：
-
-```powershell
-scoop bucket add myapps https://github.com/punxch/MyApps
-scoop install myapps/alpha
-scoop update
-scoop update alpha
-```
-
-macOS 图形软件：
-
-```sh
-brew tap punxch/myapps https://github.com/punxch/MyApps
-brew install --cask punxch/myapps/alpha
-brew update
-brew upgrade --cask punxch/myapps/alpha
-```
-
-macOS 命令行软件：
-
-```sh
-brew install punxch/myapps/beta
-```
-
-仓库不必以 `homebrew-` 开头；首次 `brew tap` 时给出完整仓库 URL 即可。自行处理真实软件的签名、公证和更新兼容性，模板不会绕过系统验证。
 
 ## 本地检查与维护
 
