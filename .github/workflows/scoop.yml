@@ -41,6 +41,10 @@ jobs:
           shell: pwsh
       - name: Run official bucket tests
         if: steps.manifests.outputs.present == 'true'
+        env:
+          # The upstream importer otherwise checks only the last commit's JSON.
+          # Validate every published manifest, including on manual CI runs.
+          CI: 'false'
         run: |
           $env:SCOOP_HOME = (Resolve-Path scoop_core).Path
           ./my_bucket/bin/test.ps1
