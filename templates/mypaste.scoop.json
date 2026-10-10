@@ -1,0 +1,18 @@
+{
+    "description": "Native clipboard history manager with local network sharing",
+    "homepage": "https://github.com/punxch/MyApps/blob/main/docs/apps/mypaste.md",
+    "license": "MIT",
+    "extract_dir": "MyPaste-windows-x86_64",
+    "bin": "MyPaste.exe",
+    "shortcuts": [
+        [
+            "MyPaste.exe",
+            "MyPaste"
+        ]
+    ],
+    "notes": [
+        "Windows 10 version 1607 or later, x64. Launch MyPaste and enable clipboard history in settings. Ctrl+Shift+V opens the panel.",
+        "Quit MyPaste from the tray before upgrading. Disable login startup before uninstalling.",
+        "History and settings in %LOCALAPPDATA%\\MyPaste are retained when uninstalling."
+    ]
+}
