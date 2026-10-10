@@ -1,0 +1,27 @@
+{
+    "schema_version": 1,
+    "repository": "punxch/MyApps",
+    "id": "mypaste",
+    "tag": "mypaste-v0.1.0",
+    "version": "0.1.0",
+    "assets": {
+        "scoop/64bit": {
+            "name": "mypaste-0.1.0-windows-x64.zip",
+            "url": "https://github.com/punxch/MyApps/releases/download/mypaste-v0.1.0/mypaste-0.1.0-windows-x64.zip",
+            "id": 628226550,
+            "size": 3749191,
+            "updated_at": "2026-10-10T14:53:48Z",
+            "digest": "sha256:26064886ec741258b9a1e72b30aded9f7f6b01f839f1b9ce6bb29a10b97349ff",
+            "sha256": "26064886ec741258b9a1e72b30aded9f7f6b01f839f1b9ce6bb29a10b97349ff"
+        },
+        "homebrew/arm64": {
+            "name": "mypaste-0.1.0-macos-arm64.dmg",
+            "url": "https://github.com/punxch/MyApps/releases/download/mypaste-v0.1.0/mypaste-0.1.0-macos-arm64.dmg",
+            "id": 628226648,
+            "size": 4504273,
+            "updated_at": "2026-10-10T14:53:50Z",
+            "digest": "sha256:3ee8452fde32f2b4452a3946f04f35a27e224d41128258a1ac51c2867a302e2f",
+            "sha256": "3ee8452fde32f2b4452a3946f04f35a27e224d41128258a1ac51c2867a302e2f"
+        }
+    }
+}
