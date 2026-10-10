@@ -6,6 +6,14 @@
 
 > `alpha` 和 `beta` 是默认禁用的配置示例，尚无真实安装包。首次配置和发布成功前，安装命令不能安装它们。本模板不编译、签名或公证软件。
 
+## 已接入的软件
+
+| 软件 | 平台 | 安装 |
+| --- | --- | --- |
+| [Dota2 IME](docs/apps/dota2ime.md) | Windows x64 | `scoop install myapps/dota2ime` |
+
+软件的二进制发布在本仓库 Releases，应用源码不在本仓库。`alpha`、`beta` 继续作为禁用的配置示例。
+
 ## 仓库结构
 
 | 路径 | 用途 |

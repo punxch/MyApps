@@ -1,0 +1,17 @@
+{
+    "description": "Dota 2 input method compatibility and management tool for Windows",
+    "homepage": "https://github.com/punxch/MyApps/blob/main/docs/apps/dota2ime.md",
+    "license": "Proprietary",
+    "bin": "dota2ime.exe",
+    "shortcuts": [
+        [
+            "dota2ime.exe",
+            "Dota2 IME"
+        ]
+    ],
+    "notes": [
+        "Windows x64 portable application. Missing WebView2 can be installed after confirmation in the app.",
+        "Changing an input method's compatibility name requires UAC confirmation inside the app.",
+        "Uninstalling this package does not restore input method settings or remove shared WebView2. Restore settings in the app first if needed."
+    ]
+}

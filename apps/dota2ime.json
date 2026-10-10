@@ -1,0 +1,11 @@
+{
+    "schema_version": 1,
+    "id": "dota2ime",
+    "enabled": true,
+    "scoop": {
+        "template": "templates/dota2ime.scoop.json",
+        "assets": {
+            "64bit": "dota2ime-{version}-windows-x64.zip"
+        }
+    }
+}
