@@ -7,8 +7,7 @@ cask "mymouse" do
   desc "Share keyboard, mouse and clipboard between computers"
   homepage "https://github.com/@@REPOSITORY@@/blob/main/docs/apps/mymouse.md"
 
-  depends_on :macos
-  depends_on macos: ">= :monterey"
+  depends_on macos: :monterey
 
   app "MyMouse.app"
   binary "#{appdir}/MyMouse.app/Contents/Resources/mymouse"
