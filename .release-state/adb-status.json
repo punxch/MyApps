@@ -1,0 +1,18 @@
+{
+    "schema_version": 1,
+    "repository": "punxch/MyApps",
+    "id": "adb-status",
+    "tag": "adb-status-v0.2.1",
+    "version": "0.2.1",
+    "assets": {
+        "homebrew/arm64": {
+            "name": "adb-status-0.2.1-macos-arm64.zip",
+            "url": "https://github.com/punxch/MyApps/releases/download/adb-status-v0.2.1/adb-status-0.2.1-macos-arm64.zip",
+            "id": 659786116,
+            "size": 273459,
+            "updated_at": "2026-10-20T16:01:45Z",
+            "digest": "sha256:b3a1d26d0655f782652df0208086d89ef086eb33079a0c6d9f24f9b923e23283",
+            "sha256": "b3a1d26d0655f782652df0208086d89ef086eb33079a0c6d9f24f9b923e23283"
+        }
+    }
+}
