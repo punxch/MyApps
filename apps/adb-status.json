@@ -1,0 +1,12 @@
+{
+    "schema_version": 1,
+    "id": "adb-status",
+    "enabled": true,
+    "homebrew": {
+        "kind": "cask",
+        "template": "templates/adb-status.cask.rb",
+        "assets": {
+            "arm64": "adb-status-{version}-macos-arm64.zip"
+        }
+    }
+}

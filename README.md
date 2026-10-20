@@ -13,6 +13,7 @@
 | [Dota2 IME](docs/apps/dota2ime.md) | Windows x64 | `scoop install myapps/dota2ime` |
 | [MyMouse](docs/apps/mymouse.md) | Windows 10/11 x64 / macOS 12+ Apple Silicon、Intel | `scoop install myapps/mymouse` / `brew install --cask punxch/myapps/mymouse` |
 | [MyPaste](docs/apps/mypaste.md) | Windows x64 / macOS 15.4+ Apple Silicon | `scoop install myapps/mypaste` / `brew install --cask punxch/myapps/mypaste` |
+| [ADB Status](docs/apps/adb-status.md) | macOS 11+ Apple Silicon | `brew install --cask punxch/myapps/adb-status` |
 
 软件的二进制发布在本仓库 Releases，应用源码不在本仓库。`alpha`、`beta` 继续作为禁用的配置示例。
 
@@ -49,9 +50,10 @@ brew tap punxch/myapps https://github.com/punxch/MyApps
 ```sh
 brew install --cask punxch/myapps/mymouse
 brew install --cask punxch/myapps/mypaste
+brew install --cask punxch/myapps/adb-status
 ```
 
-安装后从“应用程序”打开 **MyMouse** 或 **MyPaste**。MyMouse 支持 macOS 12+ 的 Apple Silicon 和 Intel；MyPaste 仅支持 macOS 15.4+ 的 Apple Silicon。Dota2 IME 暂无 Mac 版。Homebrew 自身有独立的系统要求；无法使用 Homebrew 时，可按下面的方法手动安装支持当前系统的软件。
+安装后从“应用程序”打开 **MyMouse**、**MyPaste** 或 **ADB Status**。MyMouse 支持 macOS 12+ 的 Apple Silicon 和 Intel；MyPaste 仅支持 macOS 15.4+ 的 Apple Silicon；ADB Status 支持 macOS 11+ 的 Apple Silicon，需另行安装 Android SDK Platform Tools（adb）。Dota2 IME 暂无 Mac 版。Homebrew 自身有独立的系统要求；无法使用 Homebrew 时，可按下面的方法手动安装支持当前系统的软件。
 
 ### 手动下载安装
 
@@ -62,12 +64,13 @@ brew install --cask punxch/myapps/mypaste
 | Dota2 IME | 下载 `dota2ime-版本-windows-x64.zip`，解压后运行 `dota2ime.exe` | 暂不支持 |
 | MyMouse | 下载 `mymouse-版本-windows-x64.zip`，完整解压后运行 `mymouse_settings.exe` | 下载 `mymouse-版本-macos-universal.zip`，解压后将 `MyMouse.app` 移入“应用程序” |
 | MyPaste | 下载 `mypaste-版本-windows-x64.zip`，完整解压后运行 `MyPaste-windows-x86_64/MyPaste.exe` | 下载 `mypaste-版本-macos-arm64.dmg`，打开后将 `MyPaste` 拖入 `Applications` |
+| ADB Status | 暂不支持 | 下载 `adb-status-版本-macos-arm64.zip`，解压后将 `ADB Status.app` 移入“应用程序” |
 
 Windows ZIP 请完整解压并保留随包文件。GitHub 自动生成的 **Source code** 附件是本仓库的清单与模板，不是应用安装包。
 
 当前 Windows 包未做发行者代码签名；Mac 包使用临时本地签名，尚未经过 Apple 公证。如果 macOS 阻止打开，请确认下载来源后参考 [Apple 的应用打开说明](https://support.apple.com/en-us/102445)。
 
-MyMouse 的 Mac 键鼠共享需要按应用引导授予“辅助功能”和“输入监控”权限；MyPaste 首次启动后需在设置中启用剪贴板历史，Mac 自动粘贴还需要“辅助功能”权限。完整使用说明见 [Dota2 IME](docs/apps/dota2ime.md)、[MyMouse](docs/apps/mymouse.md)、[MyPaste](docs/apps/mypaste.md)。
+MyMouse 的 Mac 键鼠共享需要按应用引导授予“辅助功能”和“输入监控”权限；MyPaste 首次启动后需在设置中启用剪贴板历史，Mac 自动粘贴还需要“辅助功能”权限；ADB Status 通过右键浮窗查看设备详情或退出。完整使用说明见 [Dota2 IME](docs/apps/dota2ime.md)、[MyMouse](docs/apps/mymouse.md)、[MyPaste](docs/apps/mypaste.md)、[ADB Status](docs/apps/adb-status.md)。
 
 ### 更新软件
 
@@ -88,6 +91,7 @@ macOS：
 brew update
 brew upgrade --cask punxch/myapps/mymouse
 brew upgrade --cask punxch/myapps/mypaste
+brew upgrade --cask punxch/myapps/adb-status
 ```
 
 ## 仓库结构
