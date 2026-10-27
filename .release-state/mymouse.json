@@ -2,26 +2,26 @@
     "schema_version": 1,
     "repository": "punxch/MyApps",
     "id": "mymouse",
-    "tag": "mymouse-v0.1.0",
-    "version": "0.1.0",
+    "tag": "mymouse-v0.1.1",
+    "version": "0.1.1",
     "assets": {
         "scoop/64bit": {
-            "name": "mymouse-0.1.0-windows-x64.zip",
-            "url": "https://github.com/punxch/MyApps/releases/download/mymouse-v0.1.0/mymouse-0.1.0-windows-x64.zip",
-            "id": 628136123,
-            "size": 16766514,
-            "updated_at": "2026-10-10T14:09:38Z",
-            "digest": "sha256:597418d46534ce49cc850dca0e8b0a0556396863771e3bc056676b242c9e8afb",
-            "sha256": "597418d46534ce49cc850dca0e8b0a0556396863771e3bc056676b242c9e8afb"
+            "name": "mymouse-0.1.1-windows-x64.zip",
+            "url": "https://github.com/punxch/MyApps/releases/download/mymouse-v0.1.1/mymouse-0.1.1-windows-x64.zip",
+            "id": 681564474,
+            "size": 16767829,
+            "updated_at": "2026-10-27T12:40:08Z",
+            "digest": "sha256:2f6b8ac6c8ca738848062ff7d73c255480e690e4c740f2f90bebe5f9c2c0d7fc",
+            "sha256": "2f6b8ac6c8ca738848062ff7d73c255480e690e4c740f2f90bebe5f9c2c0d7fc"
         },
         "homebrew/universal": {
-            "name": "mymouse-0.1.0-macos-universal.zip",
-            "url": "https://github.com/punxch/MyApps/releases/download/mymouse-v0.1.0/mymouse-0.1.0-macos-universal.zip",
-            "id": 628136316,
-            "size": 26710781,
-            "updated_at": "2026-10-10T14:09:50Z",
-            "digest": "sha256:6cffe06b7d60bc364d9f18bcb3a9dd119d795833c68151a95b31e18ac4382837",
-            "sha256": "6cffe06b7d60bc364d9f18bcb3a9dd119d795833c68151a95b31e18ac4382837"
+            "name": "mymouse-0.1.1-macos-universal.zip",
+            "url": "https://github.com/punxch/MyApps/releases/download/mymouse-v0.1.1/mymouse-0.1.1-macos-universal.zip",
+            "id": 681564467,
+            "size": 26710520,
+            "updated_at": "2026-10-27T12:40:10Z",
+            "digest": "sha256:5c41cd202d49c3a7d7403cfde96011c6ca4f7f6abc817859ad36a44971b60468",
+            "sha256": "5c41cd202d49c3a7d7403cfde96011c6ca4f7f6abc817859ad36a44971b60468"
         }
     }
 }
