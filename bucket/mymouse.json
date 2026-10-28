@@ -15,6 +15,21 @@
         "Disable login startup and quit MyMouse from the tray before uninstalling. Quit before upgrading, then reopen the app.",
         "User settings and pairing data are stored outside the package and are retained when uninstalling."
     ],
+    "post_install": [
+        "$runKey = 'HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Run'",
+        "$startup = (Get-ItemProperty -LiteralPath $runKey -Name MyMouse -ErrorAction SilentlyContinue).MyMouse",
+        "if ($startup -match '^\"(?<exe>[^\"\\r\\n]+\\\\mymouse[.]exe)\"\\s+(?:--background\\s+)?--data-dir\\s+\"(?<profile>[^\"\\r\\n]+)\"\\s+daemon\\s+run\\s*$') {",
+        "    $oldExecutable = $Matches.exe",
+        "    $profile = $Matches.profile",
+        "    $packageRoot = [IO.Path]::GetFullPath((Split-Path -Parent $dir))",
+        "    $oldPackageRoot = [IO.Path]::GetFullPath((Split-Path -Parent (Split-Path -Parent $oldExecutable)))",
+        "    if ([string]::Equals($packageRoot, $oldPackageRoot, [StringComparison]::OrdinalIgnoreCase)) {",
+        "        $executable = Join-Path $packageRoot 'current\\mymouse.exe'",
+        "        $value = '\"{0}\" --background --data-dir \"{1}\" daemon run' -f $executable, $profile",
+        "        Set-ItemProperty -LiteralPath $runKey -Name MyMouse -Value $value -ErrorAction Stop",
+        "    }",
+        "}"
+    ],
     "version": "0.1.2",
     "architecture": {
         "64bit": {
