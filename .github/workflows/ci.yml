@@ -29,9 +29,13 @@ jobs:
         env:
           HOMEBREW_NO_AUTO_UPDATE: '1'
           HOMEBREW_NO_ANALYTICS: '1'
+          XDG_CONFIG_HOME: ${{ runner.temp }}/myapps-homebrew-config
         run: |
           python3 tests/preview_fixtures.py --output "$RUNNER_TEMP/myapps-preview"
           brew tap local/myapps "$RUNNER_TEMP/myapps-preview"
+          if brew command trust > /dev/null 2>&1; then
+            brew trust --tap local/myapps
+          fi
           brew info --json=v2 --cask local/myapps/alpha > /dev/null
           brew info --json=v2 local/myapps/beta > /dev/null
           for file in Casks/*.rb Formula/*.rb; do
@@ -39,6 +43,9 @@ jobs:
             ruby -c "$file"
           done
           brew tap local/myapps-real "$GITHUB_WORKSPACE"
+          if brew command trust > /dev/null 2>&1; then
+            brew trust --tap local/myapps-real
+          fi
           for file in Casks/*.rb; do
             [ -f "$file" ] || continue
             brew info --json=v2 --cask "local/myapps-real/$(basename "$file" .rb)" > /dev/null
