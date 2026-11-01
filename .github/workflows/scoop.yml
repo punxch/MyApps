@@ -2,9 +2,9 @@ name: Scoop tests
 
 on:
   push:
-    paths: ['bucket/**', 'bin/**', 'Scoop-Bucket.Tests.ps1', '.gitattributes', '.github/workflows/scoop.yml']
+    paths: ['bucket/**', 'bin/**', 'tests/install_adb_status.ps1', 'Scoop-Bucket.Tests.ps1', '.gitattributes', '.github/workflows/scoop.yml']
   pull_request:
-    paths: ['bucket/**', 'bin/**', 'Scoop-Bucket.Tests.ps1', '.gitattributes', '.github/workflows/scoop.yml']
+    paths: ['bucket/**', 'bin/**', 'tests/install_adb_status.ps1', 'Scoop-Bucket.Tests.ps1', '.gitattributes', '.github/workflows/scoop.yml']
   workflow_dispatch:
 
 permissions:
@@ -48,3 +48,9 @@ jobs:
         run: |
           $env:SCOOP_HOME = (Resolve-Path scoop_core).Path
           ./my_bucket/bin/test.ps1
+      - name: Install and validate ADB Status package
+        if: steps.manifests.outputs.present == 'true'
+        env:
+          SCOOP: ${{ runner.temp }}/scoop-install-validation
+        run: |
+          ./my_bucket/tests/install_adb_status.ps1 -ScoopRoot (Resolve-Path scoop_core).Path -BucketRoot (Resolve-Path my_bucket).Path

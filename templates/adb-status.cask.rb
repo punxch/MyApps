@@ -4,7 +4,7 @@ cask "adb-status" do
 
   url "@@URL_ARM64@@"
   name "ADB Status"
-  desc "Floating Android device connection and battery monitor"
+  desc "Floating Android device monitor and APK installer"
   homepage "https://github.com/@@REPOSITORY@@/blob/main/docs/apps/adb-status.md"
 
   depends_on arch: :arm64

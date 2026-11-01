@@ -2,6 +2,12 @@
     "schema_version": 1,
     "id": "adb-status",
     "enabled": true,
+    "scoop": {
+        "template": "templates/adb-status.scoop.json",
+        "assets": {
+            "64bit": "adb-status-{version}-windows-x64.zip"
+        }
+    },
     "homebrew": {
         "kind": "cask",
         "template": "templates/adb-status.cask.rb",
