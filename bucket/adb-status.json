@@ -1,0 +1,31 @@
+{
+    "description": "Floating Android device monitor with APK drag-and-drop installation",
+    "homepage": "https://github.com/punxch/MyApps/blob/main/docs/apps/adb-status.md",
+    "license": "Proprietary",
+    "bin": [
+        [
+            "ADB Status.exe",
+            "adb-status"
+        ]
+    ],
+    "shortcuts": [
+        [
+            "ADB Status.exe",
+            "ADB Status"
+        ]
+    ],
+    "notes": [
+        "Windows 10/11 x64. Launch ADB Status from the Start menu or run adb-status.",
+        "Uses an existing adb.exe when available; otherwise extracts the embedded, verified ADB 37.0.1 runtime without downloading at startup. USB drivers are not included.",
+        "Dropping one APK on the floating window installs it on all online ADB devices with install -r. Enable USB debugging and authorize each device first.",
+        "Right-click the floating window and quit ADB Status before upgrading or uninstalling.",
+        "Window settings and the bundled ADB cache under %LOCALAPPDATA%\\adb-status are retained when uninstalling."
+    ],
+    "version": "0.3.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/punxch/MyApps/releases/download/adb-status-v0.3.0/adb-status-0.3.0-windows-x64.zip",
+            "hash": "8155409afca37c3153354265021d6c8802f16b8ff791c1b5e8902fdd4964f2d2"
+        }
+    }
+}

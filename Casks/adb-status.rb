@@ -1,10 +1,10 @@
 cask "adb-status" do
-  version "0.2.3"
-  sha256 "6d7180a02d680fe53e62d04aa6d82dc11190caa829a986a518f108b369c01c79"
+  version "0.3.0"
+  sha256 "0bbe1c6d1ba8fd4a435ebe4f5f5fafd3f6850bdfe42f62fcf3d6f3452ba7b352"
 
-  url "https://github.com/punxch/MyApps/releases/download/adb-status-v0.2.3/adb-status-0.2.3-macos-arm64.zip"
+  url "https://github.com/punxch/MyApps/releases/download/adb-status-v0.3.0/adb-status-0.3.0-macos-arm64.zip"
   name "ADB Status"
-  desc "Floating Android device connection and battery monitor"
+  desc "Floating Android device monitor and APK installer"
   homepage "https://github.com/punxch/MyApps/blob/main/docs/apps/adb-status.md"
 
   depends_on arch: :arm64
