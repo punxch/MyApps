@@ -10,6 +10,12 @@ if (!(Test-Path -LiteralPath $manifest)) {
 }
 $entry = Join-Path $ScoopRoot 'bin/scoop.ps1'
 $env:SCOOP_HOME = $ScoopRoot
+# Use the checked-out Scoop core as an isolated installation, without changing
+# the runner user's existing Scoop installation or profile.
+foreach ($folder in @('shims', 'cache', 'buckets', 'apps/scoop')) {
+    New-Item -ItemType Directory -Force (Join-Path $env:SCOOP $folder) | Out-Null
+}
+New-Item -ItemType Junction -Path (Join-Path $env:SCOOP 'apps/scoop/current') -Target $ScoopRoot | Out-Null
 $installed = $false
 try {
     & $entry install $manifest --no-cache
