@@ -11,7 +11,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 @unittest.skipUnless(os.name == "nt", "Windows installer hook")
 class MyMouseStartupTests(unittest.TestCase):
-    def run_hook(self, value, directory=r"D:\Scoop\apps\mymouse\0.1.2"):
+    def run_hook(self, value, directory=r"D:\Scoop\apps\mymouse\0.2.0"):
         template = json.loads((ROOT / "templates/mymouse.scoop.json").read_text())
         manifest = json.loads((ROOT / "bucket/mymouse.json").read_text())
         self.assertEqual(template.get("post_install", []), manifest.get("post_install", []))
@@ -54,8 +54,10 @@ Invoke-Command ([scriptblock]::Create($inputData.hook -join "`r`n"))
     def test_upgrade_repairs_old_version_without_opening_desktop(self):
         value = r'"D:\Scoop\apps\mymouse\0.1.0\mymouse.exe" --data-dir "C:\My Profile\config" daemon run'
         result = self.run_hook(value)
-        self.assertEqual(result["value"], r'"D:\Scoop\apps\mymouse\current\mymouse.exe" --background --data-dir "C:\My Profile\config" daemon run')
+        self.assertEqual(result["value"], r'"D:\Scoop\apps\mymouse\current\mymouse.exe" --background --data-dir "C:\My Profile\config" daemon start')
         self.assertEqual(result["writes"], 1)
+        old_start = value.replace("daemon run", "daemon start")
+        self.assertEqual(self.run_hook(old_start)["value"], result["value"])
         repeated = self.run_hook(result["value"])
         self.assertEqual(repeated["value"], result["value"])
         self.assertEqual(self.run_hook(value, r"D:\Scoop\apps\mymouse\current")["value"], result["value"])
