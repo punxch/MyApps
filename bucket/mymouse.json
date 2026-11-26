@@ -30,11 +30,11 @@
         "    }",
         "}"
     ],
-    "version": "0.2.0",
+    "version": "0.2.1",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/punxch/MyApps/releases/download/mymouse-v0.2.0/mymouse-0.2.0-windows-x64.zip",
-            "hash": "2dd166f1afcd364b91f1f127802f59420855e61b446d75b40a940cff684982d9"
+            "url": "https://github.com/punxch/MyApps/releases/download/mymouse-v0.2.1/mymouse-0.2.1-windows-x64.zip",
+            "hash": "87c0175e7ac35d913fedcf795b108924bcb80f6bc917180f61762413112532f8"
         }
     }
 }

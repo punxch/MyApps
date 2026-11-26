@@ -1,8 +1,8 @@
 cask "mymouse" do
-  version "0.2.0"
-  sha256 "c2167b1b09069b3deb49413bf0ea9d64e6ce833010c27b26e679738ec500d9b7"
+  version "0.2.1"
+  sha256 "847b92966dd852b316c0610e47ef88f1560222e8a2ca2f147f28331481dde0d8"
 
-  url "https://github.com/punxch/MyApps/releases/download/mymouse-v0.2.0/mymouse-0.2.0-macos-universal.zip"
+  url "https://github.com/punxch/MyApps/releases/download/mymouse-v0.2.1/mymouse-0.2.1-macos-universal.zip"
   name "MyMouse"
   desc "Share keyboard, mouse and clipboard between computers"
   homepage "https://github.com/punxch/MyApps/blob/main/docs/apps/mymouse.md"
