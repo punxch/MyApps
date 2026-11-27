@@ -15,11 +15,11 @@
         "Quit MyPaste from the tray before upgrading. Disable login startup before uninstalling.",
         "History and settings in %LOCALAPPDATA%\\MyPaste are retained when uninstalling."
     ],
-    "version": "0.2.0",
+    "version": "0.2.1",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/punxch/MyApps/releases/download/mypaste-v0.2.0/mypaste-0.2.0-windows-x64.zip",
-            "hash": "ce186c45a0db0dcca872c01f4a6a1f415e21cee96f053c6e7e15a64cf462b63d"
+            "url": "https://github.com/punxch/MyApps/releases/download/mypaste-v0.2.1/mypaste-0.2.1-windows-x64.zip",
+            "hash": "0a457228bbe0ed0af95e0d203ff37e5418b3c3e817d988e5d62e32d664ba7215"
         }
     }
 }

@@ -1,8 +1,8 @@
 cask "mypaste" do
-  version "0.2.0"
-  sha256 "6b7de261db133b574b3758640cf74ad00a7026a4abca8855aef6f3344979da9b"
+  version "0.2.1"
+  sha256 "d716e2f5bb816525053b25f3e1e4265467f8c077d9fdf31ee0819b28be65d849"
 
-  url "https://github.com/punxch/MyApps/releases/download/mypaste-v0.2.0/mypaste-0.2.0-macos-arm64.dmg"
+  url "https://github.com/punxch/MyApps/releases/download/mypaste-v0.2.1/mypaste-0.2.1-macos-arm64.dmg"
   name "MyPaste"
   desc "Native clipboard history manager with local network sharing"
   homepage "https://github.com/punxch/MyApps/blob/main/docs/apps/mypaste.md"

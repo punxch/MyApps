@@ -2,26 +2,26 @@
     "schema_version": 1,
     "repository": "punxch/MyApps",
     "id": "mypaste",
-    "tag": "mypaste-v0.2.0",
-    "version": "0.2.0",
+    "tag": "mypaste-v0.2.1",
+    "version": "0.2.1",
     "assets": {
         "scoop/64bit": {
-            "name": "mypaste-0.2.0-windows-x64.zip",
-            "url": "https://github.com/punxch/MyApps/releases/download/mypaste-v0.2.0/mypaste-0.2.0-windows-x64.zip",
-            "id": 791612412,
-            "size": 4445049,
-            "updated_at": "2026-11-25T13:11:29Z",
-            "digest": "sha256:ce186c45a0db0dcca872c01f4a6a1f415e21cee96f053c6e7e15a64cf462b63d",
-            "sha256": "ce186c45a0db0dcca872c01f4a6a1f415e21cee96f053c6e7e15a64cf462b63d"
+            "name": "mypaste-0.2.1-windows-x64.zip",
+            "url": "https://github.com/punxch/MyApps/releases/download/mypaste-v0.2.1/mypaste-0.2.1-windows-x64.zip",
+            "id": 799161415,
+            "size": 4449009,
+            "updated_at": "2026-11-27T05:47:16Z",
+            "digest": "sha256:0a457228bbe0ed0af95e0d203ff37e5418b3c3e817d988e5d62e32d664ba7215",
+            "sha256": "0a457228bbe0ed0af95e0d203ff37e5418b3c3e817d988e5d62e32d664ba7215"
         },
         "homebrew/arm64": {
-            "name": "mypaste-0.2.0-macos-arm64.dmg",
-            "url": "https://github.com/punxch/MyApps/releases/download/mypaste-v0.2.0/mypaste-0.2.0-macos-arm64.dmg",
-            "id": 791606477,
-            "size": 5397427,
-            "updated_at": "2026-11-25T13:09:42Z",
-            "digest": "sha256:6b7de261db133b574b3758640cf74ad00a7026a4abca8855aef6f3344979da9b",
-            "sha256": "6b7de261db133b574b3758640cf74ad00a7026a4abca8855aef6f3344979da9b"
+            "name": "mypaste-0.2.1-macos-arm64.dmg",
+            "url": "https://github.com/punxch/MyApps/releases/download/mypaste-v0.2.1/mypaste-0.2.1-macos-arm64.dmg",
+            "id": 799161423,
+            "size": 5402282,
+            "updated_at": "2026-11-27T05:47:17Z",
+            "digest": "sha256:d716e2f5bb816525053b25f3e1e4265467f8c077d9fdf31ee0819b28be65d849",
+            "sha256": "d716e2f5bb816525053b25f3e1e4265467f8c077d9fdf31ee0819b28be65d849"
         }
     }
 }
